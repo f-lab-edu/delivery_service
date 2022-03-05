@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository {
 
-    boolean join(UserDto user);
+    boolean joinUser(UserDto user);
 
     boolean checkLogIn(@Param("id") String id, @Param("password") String password);
 
