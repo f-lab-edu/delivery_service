@@ -15,14 +15,12 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public void signUpUser(UserDto user) {
-        if(user.getType().equals("USER")){
+    public void signUp(UserDto user) {
         if (validateDuplicateUser(user)) {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         }
         UserDto joinUser = toEntity(user);
-        userRepository.joinUser(joinUser);
-        }
+        userRepository.join(joinUser);
     }
 
     public UserDto toEntity(UserDto user) {
