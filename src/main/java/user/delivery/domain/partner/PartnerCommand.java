@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import user.delivery.domain.Address;
-import user.delivery.domain.user.User;
 
 public class PartnerCommand {
 
@@ -102,6 +101,41 @@ public class PartnerCommand {
     @Getter
     @ToString
     public static class ApplyForStoreRequest {
+        private final String phone;
+        private final String license;
+        private final String licenseNum;
+        private final String name;
+        private final String account;
+        private final String state;
+        private final Address address;
+
+        @Builder
+        public ApplyForStoreRequest(String phone,
+                                    String license, String licenseNum,
+                                    String name, String account,
+                                    String state, Address address) {
+
+            this.phone = phone;
+            this.license = license;
+            this.licenseNum = licenseNum;
+            this.name = name;
+            this.account = account;
+            this.state = state;
+            this.address = address;
+        }
+
+        public PartnerOption convert() {
+            return PartnerOption.builder()
+                    .phone(this.phone)
+                    .license(this.license)
+                    .licenseNum(this.licenseNum)
+                    .name(this.name)
+                    .account(this.account)
+                    .state(PartnerOption.State.valueOf(this.state))
+                    .address(this.address)
+                    .build();
+        }
+
     }
 
     @Getter

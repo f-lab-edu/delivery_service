@@ -14,13 +14,18 @@ public class PartnerInfo {
     private final String nickname;
     private final String email;
     private final String phone;
-
-    @Embedded
     private final Address address;
 
     private final List<PartnerOption> business;
 
-    public PartnerInfo(Long id, String partnerId, String password, String nickname, String email, String phone, Address address, List<PartnerOption> business) {
+    public PartnerInfo(Long id,
+                       String partnerId,
+                       String password,
+                       String nickname,
+                       String email,
+                       String phone,
+                       Address address,
+                       List<PartnerOption> business) {
         this.id = id;
         this.partnerId = partnerId;
         this.password = password;

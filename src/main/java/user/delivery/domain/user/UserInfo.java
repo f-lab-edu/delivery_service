@@ -12,8 +12,6 @@ public class UserInfo {
     private final String nickname;
     private final String email;
     private final String phone;
-
-    @Embedded
     private final Address address;
 
     public UserInfo(User user) {

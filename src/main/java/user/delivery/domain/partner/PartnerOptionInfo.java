@@ -3,9 +3,7 @@ package user.delivery.domain.partner;
 import user.delivery.domain.Address;
 
 import javax.persistence.Embedded;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class PartnerOptionInfo {
@@ -16,12 +14,15 @@ public class PartnerOptionInfo {
     private final String name;
     private final String account;
     private final Partner partner;
-
-    @Embedded
+    private final String state;
     private final Address address;
 
 
-    public PartnerOptionInfo(Long id, String phone, String license, String licenseNum, String name, String account, Partner partner, Address address) {
+    public PartnerOptionInfo(Long id, String phone,
+                             String license, String licenseNum,
+                             String name, String account,
+                             Partner partner, String state,
+                             Address address) {
         this.id = id;
         this.phone = phone;
         this.license = license;
@@ -29,6 +30,7 @@ public class PartnerOptionInfo {
         this.name = name;
         this.account = account;
         this.partner = partner;
+        this.state = state;
         this.address = address;
     }
 
